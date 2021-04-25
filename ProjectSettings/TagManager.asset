@@ -10,6 +10,7 @@ TagManager:
   - FxTemporaire
   - Walls
   - BossBullet
+  - Boss
   layers:
   - Default
   - TransparentFX

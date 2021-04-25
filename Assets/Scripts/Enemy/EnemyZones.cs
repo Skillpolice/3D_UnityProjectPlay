@@ -93,7 +93,7 @@ public class EnemyZones : MonoBehaviour
 
     private void DoStand()
     {
-        if(distanceToPlayer > moveRadius)
+        if (distanceToPlayer > moveRadius)
         {
             //zones.enabled = false;
             rotate.enabled = false;
@@ -187,7 +187,7 @@ public class EnemyZones : MonoBehaviour
         {
             return;
         }
-        
+
         Player.Instance.DoDamage(hitDamage);
     }
 

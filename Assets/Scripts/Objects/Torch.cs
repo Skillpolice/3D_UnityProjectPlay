@@ -6,7 +6,7 @@ using UnityEngine.Audio;
 public class Torch : MonoBehaviour
 {
     [Header("Audio UI")]
-    [SerializeField] private AudioSource audio;
+   [SerializeField] public AudioSource audioS;
 
     [Header("Text UI")]
     [SerializeField] private Text saveStrom;
@@ -20,11 +20,11 @@ public class Torch : MonoBehaviour
 
             if (Player.Instance.playerHealth <= 100)
             {
-                audio.Play();
+                audioS.Play();
             }
             else
             {
-                audio.Stop();
+                audioS.Stop();
             }
 
             saveStrom.gameObject.SetActive(true);
@@ -38,7 +38,7 @@ public class Torch : MonoBehaviour
         {
             Player.Instance.StartDownHealth();
 
-            audio.Stop();
+            audioS.Stop();
 
             saveStrom.gameObject.SetActive(false);
             searingСold.gameObject.SetActive(true);

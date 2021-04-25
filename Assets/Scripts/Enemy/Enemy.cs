@@ -26,7 +26,7 @@ public class Enemy : MonoBehaviour
 
     [Header("Enemy UI")]
     [SerializeField] private HealthBar healthBar;
-    [SerializeField] private float healthEnemy = 100;
+    [SerializeField] public float healthEnemy = 100;
 
 
     Vector3 targetPosition;
@@ -83,7 +83,6 @@ public class Enemy : MonoBehaviour
 
         if (healthEnemy <= 0)
         {
-
             audioSource.PlayOneShot(deathClip);
             coll.enabled = false;
             anim.SetTrigger("EnemyDeath");
@@ -92,8 +91,10 @@ public class Enemy : MonoBehaviour
 
             Instantiate(healthPrefab, transform.position * 1f, Quaternion.identity);
             Instantiate(deathEffect, transform.position, Quaternion.identity);
-        }
 
+            damageable.OnResiveBossDamage(damage);
+        }
+        
     }
 
     private void RotateEnemy()
