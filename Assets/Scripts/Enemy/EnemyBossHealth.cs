@@ -1,6 +1,6 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
-
+using UnityEngine.UI;
 
 [RequireComponent(typeof(Damageable), typeof(Animator))]
 public class EnemyBossHealth : MonoBehaviour
@@ -20,6 +20,11 @@ public class EnemyBossHealth : MonoBehaviour
         damageable.OnResiveBossDamage += OnResiveBossDamage;
     }
 
+    private void Start()
+    {
+        panel.SetActive(false);
+    }
+
     public void OnResiveBossDamage(float damage)
     {
         enemy.healthEnemy -= damage;
@@ -31,8 +36,10 @@ public class EnemyBossHealth : MonoBehaviour
             bossCount--;
             if (bossCount <= 0)
             {
-                print("game over");
-                SceneManager.LoadScene(1);
+                Time.timeScale = 0;
+                panel.SetActive(true);
+
+                Cursor.lockState = CursorLockMode.None;
             }
 
         }

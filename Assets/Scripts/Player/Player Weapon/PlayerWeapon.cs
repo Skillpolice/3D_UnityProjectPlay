@@ -91,13 +91,13 @@ public class PlayerWeapon : MonoBehaviour
     IEnumerator ReloadAmmo()
     {
         isreloding = true;
-        //anim.SetBool("Reloding", true);
+       // anim.SetBool("Reloding", true);
         maxClips--;
 
         yield return new WaitForSeconds(reloadTime - .25f);
 
         playerAmmo.text = currenAmmo + " / " + maxClips.ToString();
-        //anim.SetBool("Reloding", false);
+       // anim.SetBool("Reloding", false);
 
         //yield return new WaitForSeconds(.25f);
 

@@ -14,6 +14,11 @@ public class MenuUI : MonoBehaviour
     {
         SceneManager.LoadScene(0);
     }
+    public void StartOver()
+    {
+        SceneManager.LoadScene(1);
+        Time.timeScale = 1;
+    }
 
     public void QuitGame()
     {
